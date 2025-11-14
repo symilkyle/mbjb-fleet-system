@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MBJB Fleet System - Simple Test</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1E3A8A 0%, #3B82F6 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            width: 100%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        h1 {
+            color: #1E3A8A;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #6B7280;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .status {
+            background: #D1FAE5;
+            color: #059669;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+        .info-box {
+            background: #EFF6FF;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3B82F6;
+        }
+        .info-box h3 {
+            color: #1E3A8A;
+            margin-bottom: 10px;
+        }
+        .info-box p {
+            color: #374151;
+            line-height: 1.6;
+        }
+        .button {
+            background: #3B82F6;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 10px 10px 10px 0;
+            transition: all 0.3s;
+        }
+        .button:hover {
+            background: #2563EB;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+        .error-box {
+            background: #FEE2E2;
+            color: #DC2626;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #DC2626;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚗 MBJB Fleet Tracking System</h1>
+        <p class="subtitle">Prototype Test Page</p>
+        
+        <div class="status">
+            ✅ HTML is loading correctly!
+        </div>
+
+        <div class="info-box">
+            <h3>❌ Problem Detected</h3>
+            <p><strong>The React build is not loading properly in offline mode.</strong></p>
+            <p>This can happen because:</p>
+            <ul style="margin-left: 20px; margin-top: 10px; color: #374151;">
+                <li>Browser doesn't support ES6 modules via file:// protocol</li>
+                <li>CORS restrictions on local files</li>
+                <li>Browser security settings blocking JavaScript</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>✅ Solution: Run Local Server</h3>
+            <p>The React app needs to run on a local server instead of opening directly as a file.</p>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <p style="color: #6B7280; margin-bottom: 15px; font-weight: 600;">Choose a method to view the prototype:</p>
+            <button class="button" onclick="showMethod1()">Method 1: Python Server (Easiest)</button>
+            <button class="button" onclick="showMethod2()">Method 2: Node.js Server</button>
+            <button class="button" onclick="showMethod3()">Method 3: Online Hosting</button>
+        </div>
+
+        <div id="method-details" style="margin-top: 20px;"></div>
+    </div>
+
+    <script>
+        function showMethod1() {
+            document.getElementById('method-details').innerHTML = `
+                <div class="info-box">
+                    <h3>🐍 Method 1: Python HTTP Server (RECOMMENDED)</h3>
+                    <p><strong>Steps:</strong></p>
+                    <ol style="margin-left: 20px; margin-top: 10px; color: #374151; line-height: 1.8;">
+                        <li>Open <strong>Command Prompt</strong> (Windows) or <strong>Terminal</strong> (Mac/Linux)</li>
+                        <li>Navigate to the prototype folder:<br/>
+                            <code style="background: #F3F4F6; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 5px;">
+                                cd path/to/mbjb-fleet-static-build
+                            </code>
+                        </li>
+                        <li>Run this command:<br/>
+                            <code style="background: #F3F4F6; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 5px;">
+                                python -m http.server 8000
+                            </code><br/>
+                            <small style="color: #6B7280;">or try: <code>python3 -m http.server 8000</code></small>
+                        </li>
+                        <li>Open browser and go to:<br/>
+                            <strong style="color: #3B82F6;">http://localhost:8000</strong>
+                        </li>
+                    </ol>
+                    <p style="margin-top: 15px; color: #059669; font-weight: 600;">✅ This will work 100%!</p>
+                </div>
+            `;
+        }
+
+        function showMethod2() {
+            document.getElementById('method-details').innerHTML = `
+                <div class="info-box">
+                    <h3>📦 Method 2: Node.js HTTP Server</h3>
+                    <p><strong>Steps:</strong></p>
+                    <ol style="margin-left: 20px; margin-top: 10px; color: #374151; line-height: 1.8;">
+                        <li>Install http-server globally:<br/>
+                            <code style="background: #F3F4F6; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 5px;">
+                                npm install -g http-server
+                            </code>
+                        </li>
+                        <li>Navigate to the prototype folder:<br/>
+                            <code style="background: #F3F4F6; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 5px;">
+                                cd path/to/mbjb-fleet-static-build
+                            </code>
+                        </li>
+                        <li>Run:<br/>
+                            <code style="background: #F3F4F6; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 5px;">
+                                http-server -p 8000
+                            </code>
+                        </li>
+                        <li>Open: <strong style="color: #3B82F6;">http://localhost:8000</strong></li>
+                    </ol>
+                </div>
+            `;
+        }
+
+        function showMethod3() {
+            document.getElementById('method-details').innerHTML = `
+                <div class="info-box">
+                    <h3>🌐 Method 3: Deploy Online (Best for Sharing)</h3>
+                    <p><strong>I can help deploy to Netlify/Vercel for FREE!</strong></p>
+                    <p style="margin-top: 10px;">Benefits:</p>
+                    <ul style="margin-left: 20px; margin-top: 10px; color: #374151; line-height: 1.8;">
+                        <li>✅ Prof just clicks a link - no installation needed</li>
+                        <li>✅ Works on any device (phone, tablet, laptop)</li>
+                        <li>✅ Free hosting</li>
+                        <li>✅ Automatic HTTPS</li>
+                        <li>✅ Fast CDN</li>
+                    </ul>
+                    <p style="margin-top: 15px; color: #3B82F6; font-weight: 600;">
+                        Let me know if you want this option - I can deploy it in 5 minutes!
+                    </p>
+                </div>
+            `;
+        }
+
+        // Show method 1 by default
+        showMethod1();
+    </script>
+</body>
+</html>
